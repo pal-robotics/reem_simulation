@@ -1,7 +1,5 @@
 <launch>
 
-<!-- TODO: Mirror structure in PR2 analog -->
-
    <!-- Gazebo backend for PAL motors controller -->
   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/pal_motors_controller.yaml" />
 
@@ -21,7 +19,7 @@
   <!-- Controllers that come up started -->
   <node name="default_controllers_spawner"
         pkg="pr2_controller_manager" type="spawner" output="screen"
-        args="--wait-for=calibrated pal_motors_controller" />
+        args="--wait-for=calibrated right_arm_controller left_arm_controller head_controller torso_controller" />
 
   <!-- Nodes on top of the controllers -->
   <group ns="pal_motors_controller">
