@@ -1,7 +1,7 @@
 <stack>
-  <description brief="Reem-H2 simulation components">
-    Reem-H2-specific simulation components. These include
-    plugins and launch scripts necessary for running Reem-H2 in simulation.
+  <description brief="REEM simulation components">
+    REEM-specific simulation components. These include
+    plugins and launch scripts necessary for running REEM in simulation.
   </description>
   <author>Maintained by Adolfo Rodriguez Tsouroukdissian</author>
   <license>Modified BSD</license>
