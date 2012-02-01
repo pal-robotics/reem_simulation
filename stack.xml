@@ -16,6 +16,7 @@
   <depend stack="reem_common" />
   <depend stack="pr2_controllers" />
   <depend stack="pr2_mechanism" />
+  <depend stack="reem_plugins" />
   <depend stack="robot_model" />
   <depend stack="ros" />
   <depend stack="simulator_gazebo" />
