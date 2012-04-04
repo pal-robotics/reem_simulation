@@ -8,6 +8,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/reem_simulation</url>
   <depend stack="pr2_controllers" /> <!-- robot_mechanism_controllers -->
+<depend stack="laser_pipeline" /> <!-- laser_filters -->
   <depend stack="pr2_simulator" /> <!-- pr2_gazebo_plugins -->
   <depend stack="reem_common" /> <!-- reem_description -->
   <depend stack="reem_plugins" /> <!-- range_gazebo_plugin, reem_controller_plugin -->
@@ -18,3 +19,4 @@
   <depend stack="visualization_common" /> <!-- ogre, ogre_tools -->
 
 </stack>
+
