@@ -3,7 +3,7 @@
   <author>Pablo Garcia Martinez</author>
   <license>Modified BSD</license>
   <review status="unreviewed" notes=""/>
-  <url></url>
+  <url>http://ros.org/wiki/reem_gazebo</url>
 
   <depend package="laser_filters"/>
   <depend package="reem_controller_configuration_gazebo"/>
@@ -15,7 +15,6 @@
 
   <depend package="gazebo"/>
   <depend package="gazebo_worlds"/>
-  <depend package="ogre"/>
 
   <depend package="roscpp"/>
   <depend package="rospy"/>
