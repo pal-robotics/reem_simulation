@@ -6,6 +6,4 @@
   <!-- Default Controllers -->
   <include file="$(find reem_controller_configuration_gazebo)/launch/reem_default_controllers.launch" />
 
-
 </launch>
-

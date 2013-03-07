@@ -1,7 +1,7 @@
 <launch>
 
   <!-- start up empty world -->
-  <include file="$(find reem_gazebo)/launch/empty_world_throttled.launch"/>
+  <include file="$(find reem_gazebo)/launch/empty_world.launch"/>
 
   <!-- start REEM mrobot -->
   <include file="$(find reem_gazebo)/launch/reem.launch"/>
