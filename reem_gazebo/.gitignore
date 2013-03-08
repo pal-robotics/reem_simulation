@@ -1,4 +1,4 @@
-build/
+build
 models/reem_description/meshes
 models/reem_description/reem.urdf
 models/reem_rgbd_description/reem_rgbd.urdf

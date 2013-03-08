@@ -6,7 +6,7 @@ rosbuild_init()
 rosbuild_find_ros_package(xacro)
 rosbuild_find_ros_package(reem_description)
 
-# Generate an up-to-date URDF robot description using xacro
+# Generate an up-to-date URDF robot description of REEM
 set(INPUT_XACRO_FILE ${reem_description_PACKAGE_PATH}/robots/reem.urdf.xacro)
 set(OUTPUT_URDF_FILE ${CMAKE_CURRENT_SOURCE_DIR}/models/reem_description/reem.urdf)
 
@@ -16,7 +16,7 @@ add_custom_command(OUTPUT ${OUTPUT_URDF_FILE}
 add_custom_target(generate_reem_urdf ALL DEPENDS ${OUTPUT_URDF_FILE})
 
 
-# Generate an up-to-date URDF robot description _with_ RGBD sensor using xacro
+# Generate an up-to-date URDF robot description of REEM with a head-mounted RGBD sensor
 set(INPUT_RGBD_XACRO_FILE ${reem_description_PACKAGE_PATH}/robots/reem_rgbd.urdf.xacro)
 set(OUTPUT_RGBD_URDF_FILE ${CMAKE_CURRENT_SOURCE_DIR}/models/reem_rgbd_description/reem_rgbd.urdf)
 
@@ -24,6 +24,35 @@ add_custom_command(OUTPUT ${OUTPUT_RGBD_URDF_FILE}
                    COMMAND ${xacro_PACKAGE_PATH}/xacro.py ${INPUT_RGBD_XACRO_FILE} -o ${OUTPUT_RGBD_URDF_FILE})
 
 add_custom_target(generate_reem_rgbd_urdf ALL DEPENDS ${OUTPUT_RGBD_URDF_FILE})
+
+
+# Generate an up-to-date URDF robot description of the REEM head
+set(INPUT_HEAD_XACRO_FILE ${reem_description_PACKAGE_PATH}/robots/reem_head.urdf.xacro)
+set(OUTPUT_HEAD_URDF_FILE ${CMAKE_CURRENT_SOURCE_DIR}/models/reem_head_description/reem_head.urdf)
+
+add_custom_command(OUTPUT ${OUTPUT_HEAD_URDF_FILE}
+                   COMMAND ${xacro_PACKAGE_PATH}/xacro.py ${INPUT_HEAD_XACRO_FILE} -o ${OUTPUT_HEAD_URDF_FILE})
+
+add_custom_target(generate_reem_head_urdf ALL DEPENDS ${OUTPUT_HEAD_URDF_FILE})
+
+# Generate an up-to-date URDF robot description of the REEM arm
+set(INPUT_ARM_XACRO_FILE ${reem_description_PACKAGE_PATH}/robots/reem_arm.urdf.xacro)
+set(OUTPUT_ARM_URDF_FILE ${CMAKE_CURRENT_SOURCE_DIR}/models/reem_arm_description/reem_arm.urdf)
+
+add_custom_command(OUTPUT ${OUTPUT_ARM_URDF_FILE}
+                   COMMAND ${xacro_PACKAGE_PATH}/xacro.py ${INPUT_ARM_XACRO_FILE} -o ${OUTPUT_ARM_URDF_FILE})
+
+add_custom_target(generate_reem_arm_urdf ALL DEPENDS ${OUTPUT_ARM_URDF_FILE})
+
+
+# Generate an up-to-date URDF robot description of the REEM upper body
+set(INPUT_UPPER_BODY_XACRO_FILE ${reem_description_PACKAGE_PATH}/robots/reem_upper_body.urdf.xacro)
+set(OUTPUT_UPPER_BODY_URDF_FILE ${CMAKE_CURRENT_SOURCE_DIR}/models/reem_upper_body_description/reem_upper_body.urdf)
+
+add_custom_command(OUTPUT ${OUTPUT_UPPER_BODY_URDF_FILE}
+                   COMMAND ${xacro_PACKAGE_PATH}/xacro.py ${INPUT_UPPER_BODY_XACRO_FILE} -o ${OUTPUT_UPPER_BODY_URDF_FILE})
+
+add_custom_target(generate_reem_upper_body_urdf ALL DEPENDS ${OUTPUT_UPPER_BODY_URDF_FILE})
 
 
 # Create symlink to robot model resources (meshes, images)
