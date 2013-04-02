@@ -10,7 +10,7 @@
   <depend package="reem_description"/>
   <depend package="pr2_gazebo_plugins"/>
   <depend package="reem_diffdrive_plugin"/>
-  <depend package="range_gazebo_plugin"/>
+  <depend package="pal_gazebo_plugins"/>
   <depend package="robot_mechanism_controllers"/>
 
   <depend package="gazebo"/>
@@ -19,6 +19,7 @@
   <depend package="roscpp"/>
   <depend package="rospy"/>
   <depend package="std_msgs"/>
+  <depend package="xacro"/>
 
   <export>
     <gazebo gazebo_media_path="${prefix}" />
