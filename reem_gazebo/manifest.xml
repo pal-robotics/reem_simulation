@@ -9,7 +9,6 @@
   <depend package="reem_controller_configuration_gazebo"/>
   <depend package="reem_description"/>
   <depend package="pr2_gazebo_plugins"/>
-  <depend package="reem_diffdrive_plugin"/>
   <depend package="pal_gazebo_plugins"/>
   <depend package="robot_mechanism_controllers"/>
 
