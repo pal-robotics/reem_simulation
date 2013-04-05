@@ -3,7 +3,9 @@ reem_simulation
 
 Packages for running REEM in the Gazebo simulator.
 
-We are using the standalone version of Gazebo (1.5+), so you'll need to do some environment setup for Gazebo to pick up the REEM model and worlds:
+We are using the standalone version of Gazebo (1.5+). If using Ubuntu, make sure to install the **gazebo** and **osrf_common** packages.
+
+You'll also need to do some environment setup for Gazebo to pick up the REEM model and worlds:
 
 ```
 # Gazebo - atlas_msgs
