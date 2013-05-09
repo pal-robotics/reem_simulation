@@ -1,0 +1,3 @@
+reem_test_controller:
+  type: "position_controllers/JointPositionController"
+  joint: arm_right_4_joint
