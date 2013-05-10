@@ -5,8 +5,8 @@
   <review status="unreviewed" notes=""/>
   <url></url>
 
-  <depend package="reem_bringup"/>
-  <depend package="joint_group_position_controller"/>
+<!--   <depend package="reem_bringup"/> -->
+<!--   <depend package="joint_group_position_controller"/> -->
 
 </package>
 
