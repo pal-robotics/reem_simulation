@@ -1,11 +1,9 @@
 <launch>
-  <group ns="reem">
-    <!-- PID gains -->
-    <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_pids.yaml" />
+  <!-- PID gains -->
+  <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_pids.yaml" />
 
-    <!-- Walking controller -->
-    <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_test_controller.yaml" />
-  </group>
+  <!-- Walking controller -->
+  <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_test_controller.yaml" />
 
   <!-- Upper body -->
 <!--   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_upper_body_controllers.yaml" /> -->
