@@ -2,6 +2,9 @@
   <!-- PID gains -->
   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_pids.yaml" />
 
+  <!-- Joint state controller -->
+  <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_joint_state_controller.yaml" />
+
   <!-- Walking controller -->
   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_test_controller.yaml" />
 
