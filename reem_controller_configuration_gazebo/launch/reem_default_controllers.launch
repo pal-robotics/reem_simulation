@@ -5,8 +5,13 @@
   <!-- Joint state controller -->
   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_joint_state_controller.yaml" />
 
-  <!-- Walking controller -->
+  <!-- Test controller -->
   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_test_controller.yaml" />
+
+  <!-- Controllers that come up started -->
+  <node name="default_controllers_spawner"
+        pkg="controller_manager" type="spawner" output="screen"
+        args="joint_state_controller test_controller" />
 
   <!-- Upper body -->
 <!--   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_upper_body_controllers.yaml" /> -->
