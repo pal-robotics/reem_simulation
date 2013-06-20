@@ -1,4 +1,3 @@
-
 #include <cassert>
 #include <boost/foreach.hpp>
 
@@ -13,6 +12,7 @@ using std::vector;
 
 namespace reem_hardware_gazebo
 {
+using namespace hardware_interface;
 
 ReemHardwareGazebo::ReemHardwareGazebo()
   : ros_control_gazebo::RobotSim() //hardware_interface::RobotHW(),
@@ -163,8 +163,13 @@ bool ReemHardwareGazebo::initSim(ros::NodeHandle nh, gazebo::physics::ModelPtr m
   // Hardware interfaces
   for (size_t i = 0; i < n_dof_; ++i)
   {
-    jnt_state_interface_.registerJoint(jnt_names[i], &jnt_pos_[i], &jnt_vel_[i], &jnt_eff_[i]);
-    jnt_pos_cmd_interface_.registerJoint(jnt_state_interface_.getJointStateHandle(jnt_names[i]), &jnt_pos_cmd_[i]);
+    jnt_state_interface_.registerHandle(JointStateHandle(jnt_names[i],
+                                                         &jnt_pos_[i],
+                                                         &jnt_vel_[i],
+                                                         &jnt_eff_[i]));
+
+    jnt_pos_cmd_interface_.registerHandle(JointHandle(jnt_state_interface_.getHandle(jnt_names[i]),
+                                                      &jnt_pos_cmd_[i]));
 
     ROS_DEBUG_STREAM("Registered joint '" << jnt_names[i] << "' in the PositionJointInterface.");
   }
