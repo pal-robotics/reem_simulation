@@ -141,6 +141,7 @@ bool ReemHardwareGazebo::initSim(ros::NodeHandle nh, gazebo::physics::ModelPtr m
   std::vector<std::string> jnt_names;
   for (size_t i = 0; i < sim_joints_tmp.size(); ++i)
   {
+
     // NOTE: This loop has a bunch of tricks that will get removed once automatic transmission parsing is implemented
     const std::string unscoped_name = sim_joints_tmp[i]->GetName();//.substr(7); // NOTE: Removing extra scoping, TODO: Fix!
     if (unscoped_name.size() >= 6 && (0 == unscoped_name.compare(0, 6, "caster") || 0 == unscoped_name.compare(0, 5, "wheel")))
@@ -163,6 +164,7 @@ bool ReemHardwareGazebo::initSim(ros::NodeHandle nh, gazebo::physics::ModelPtr m
   // Hardware interfaces
   for (size_t i = 0; i < n_dof_; ++i)
   {
+
     jnt_state_interface_.registerHandle(JointStateHandle(jnt_names[i],
                                                          &jnt_pos_[i],
                                                          &jnt_vel_[i],
