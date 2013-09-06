@@ -1,5 +1,5 @@
 sot_controller:
-  type: "sot_reem_controller/SotReemController"
+  type: "sot_controller/SotController"
   joints:
     - arm_left_1_joint
     - arm_left_2_joint
