@@ -87,6 +87,8 @@ private:
 //   bool motors_previously_halted_;
 
   // Raw data
+  unsigned int pos_n_dof_;
+  unsigned int vel_n_dof_;
   unsigned int n_dof_;
 
   std::vector<std::string> transmission_names_;
@@ -103,8 +105,12 @@ private:
 
   std::vector<double> jnt_pos_cmd_;
 
+  std::vector<double> jnt_vel_cmd_;
+
   // Simulation-specific
   std::vector<gazebo::physics::JointPtr> sim_joints_;
+  std::vector<gazebo::physics::JointPtr> pos_sim_joints_;
+  std::vector<gazebo::physics::JointPtr> vel_sim_joints_;
 
 
   // Hardware interface: actuators
@@ -114,6 +120,7 @@ private:
   // Hardware interface: joints
   hardware_interface::JointStateInterface    jnt_state_interface_;
   hardware_interface::PositionJointInterface jnt_pos_cmd_interface_;
+  hardware_interface::VelocityJointInterface jnt_vel_cmd_interface_;
 
   // Transmission interface: actuator->joint map
   transmission_interface::ActuatorToJointStateInterface act_to_jnt_state_;
