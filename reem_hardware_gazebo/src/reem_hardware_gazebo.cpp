@@ -244,10 +244,9 @@ namespace reem_hardware_gazebo
     for(unsigned int j = 0; j < vel_n_dof_; ++j)
     {
       // Gazebo has an interesting API...
-
       vel_sim_joints_[j]->SetVelocity(0u, jnt_vel_cmd_[j]);
-      ROS_WARN_STREAM("Velocity: " << vel_sim_joints_[j]->GetName()
-                      << "-> " << jnt_vel_cmd_[j]);
+      //ROS_WARN_STREAM("Velocity: " << vel_sim_joints_[j]->GetName()
+      //                << "-> " << jnt_vel_cmd_[j]);
     }
   }
 
