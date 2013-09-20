@@ -4,7 +4,10 @@
   <include file="$(find reem_gazebo)/launch/empty_world.launch"/>
 
   <!-- Robot Description -->
-  <include file="$(find reem_description)/robots/upload_reem_upper_body.launch" />
+  <include file="$(find reem_description)/robots/upload_reem_upper_body.launch" ns="sot_controller"/>
+  
+  <!-- Robot Description -->
+  <include file="$(find reem_description)/robots/upload_reem_upper_body.launch"/>
 
   <!-- Robot model to spawn -->
   <arg name="use_rgbd_sensor" value="$(optenv USE_RGBD_SENSOR false)" />
