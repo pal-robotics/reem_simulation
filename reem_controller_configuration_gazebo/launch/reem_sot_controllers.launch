@@ -1,7 +1,10 @@
 <launch>
 
+  <!-- Robot Description in sot controller namespace -->
+  <include file="$(find reem_description)/robots/upload_reem_upper_body.launch" ns="sot_controller"/>
+
   <!-- Joint state controller -->
-  <!-- <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_joint_state_controller.yaml" /> -->
+  <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_joint_state_controller.yaml" />
 
   <!-- Sot controller -->
   <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_sot_controller.yaml" />
@@ -9,9 +12,12 @@
   <!-- Test controller -->
   <!-- <rosparam command="load" file="$(find reem_controller_configuration_gazebo)/config/reem_test_controller.yaml" /> -->
 
+  <!-- Joint state controller -->
+  <rosparam command="load" file="$(find joint_state_controller)/joint_state_controller.yaml" />
+
   <!-- Controllers that come up started -->
-  <node name="sot_controllers_spawner"
+  <node name="default_controllers_spawner"
         pkg="controller_manager" type="spawner" output="screen"
-        args="sot_controller" />
+        args="joint_state_controller sot_controller" />
 
 </launch>
