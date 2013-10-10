@@ -10,4 +10,5 @@
     <param name="publish_frequency" type="double" value="50.0" />
     <param name="tf_prefix" type="string" value="" />
   </node>
+  
 </launch>
