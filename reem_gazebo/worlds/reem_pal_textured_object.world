@@ -20,12 +20,33 @@
       <max_step_size>0.001</max_step_size>
     </physics>
     <!-- A global light source -->
+    <!--
     <include>
       <uri>model://sun</uri>
     </include>
+    -->
+    <!-- Light Source -->
+    <light type="directional" name="sun">
+      <pose>-4 0 10 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>0 0 0 1</specular>
+      <attenuation>
+        <range>20</range>
+        <linear>0.01</linear>
+        <constant>0.8</constant>
+        <quadratic>0.0</quadratic>
+      </attenuation>
+      <direction>0.0 0.2 -8.0</direction>
+      <cast_shadows>true</cast_shadows>
+    </light>
     <!-- A ground plane -->
     <include>
       <uri>model://ground_plane</uri>
+    </include>
+    <!-- Wall with REEM photo -->
+    <include>
+      <uri>model://pal_textured_object</uri>
+      <pose>0.5 0 1.55 0 0 0</pose>
     </include>
   </world>
 </sdf>

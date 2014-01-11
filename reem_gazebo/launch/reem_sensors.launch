@@ -2,6 +2,6 @@
 
 <launch>
   <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
-    <arg name="world" value="empty" />
+    <arg name="world" value="sensors" />
   </include>
 </launch>

@@ -23,6 +23,9 @@
     <include>
       <uri>model://sun</uri>
     </include>
+    <include>
+      <uri>model://reem_heightmap_1</uri>
+    </include>
     <!-- A ground plane -->
     <include>
       <uri>model://ground_plane</uri>
