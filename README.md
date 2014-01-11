@@ -3,20 +3,12 @@ reem_simulation
 
 Packages for running REEM in the Gazebo simulator.
 
-We are using the standalone version of Gazebo (1.5+). If using Ubuntu, make sure to install the **gazebo** and **osrf_common** packages.
+Steps to launch a simulation:
 
-You'll also need to do some environment setup for Gazebo to pick up the REEM model and worlds:
+1. install `ros-hydro-desktop-full`
+2. download `reem_robot` and `reem_simulation`
+3. launch a simulation of REEM in an empty world:
 
-```
-# Gazebo - atlas_msgs
-export GAZEBO_PLUGIN_PATH=`rospack find atlas_msgs`/lib:$GAZEBO_PLUGIN_PATH                       # plugins
-
-# Gazebo - PAL
-export GAZEBO_PLUGIN_PATH=`rospack find pal_gazebo_plugins`/lib:$GAZEBO_PLUGIN_PATH               # plugins
-
-# Gazebo - REEM-H3
-export GAZEBO_MODEL_PATH=`rospack find reem_gazebo`/models:$GAZEBO_MODEL_PATH                     # models
-export GAZEBO_RESOURCE_PATH=`rospack find reem_gazebo`/reem_gazebo/worlds:$GAZEBO_RESOURCE_PATH   # resources
-```
-
-If you plan to use REEM on a regular basis, consider adding the above snippet to your ~/.bahsrc or equivalent.
+   ```
+   roslaunch reem_gazebo reem_empty_world.launch
+   ```
