@@ -14,7 +14,6 @@
     <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
       <arg name="world"  value="$(arg world)"/>
       <arg name="robot"  value="$(arg robot)"/>
-      <arg name="gzname" value="$(arg gzname)"/>
       <arg name="gzpose" value="$(arg gzpose)"/>
     </include>
 
