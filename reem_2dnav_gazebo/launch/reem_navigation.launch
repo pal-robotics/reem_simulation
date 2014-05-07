@@ -1,29 +1,39 @@
 <launch>
+  <arg name="namespace" default="/"/>
+
   <arg name="world"  default="simple_office"/>
   <arg name="robot"  default="full"/>
   <arg name="gzpose" default="-x 0.0 -y 0.0 -z 0.0 -R 0.0 -P 0.0 -Y 0.0"/>
 
-  <arg name="planner"       default="base"/>
-  <arg name="local_planner" default="trajectory"/>
-  <arg name="localization"  default="amcl"/>
-  <arg name="map"           default="$(find reem_maps)/configurations/$(arg world)"/>
+  <arg name="local_planner"  default="trajectory"/>
+  <arg name="global_planner" default="navfn"/>
 
-  <arg name="rviz" default="true"/>
+  <arg name="localization" default="amcl"/>
+  <arg name="map"          default="$(find reem_maps)/configurations/$(arg world)"/>
 
-  <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
-    <arg name="world"  value="$(arg world)"/>
-    <arg name="robot"  value="$(arg robot)"/>
-    <arg name="gzpose" value="$(arg gzpose)"/>
-  </include>
+  <arg name="rviz"     default="true"/>
+  <arg name="gzclient" default="true"/>
 
-  <include file="$(find reem_2dnav)/launch/navigation.launch">
-    <arg name="planner"       value="$(arg planner)"/>
-    <arg name="local_planner" value="$(arg local_planner)"/>
-    <arg name="localization"  value="$(arg localization)"/>
-    <arg name="map"           value="$(arg map)"/>
-  </include>
+  <group ns="$(arg namespace)">
 
-  <node name="rviz" pkg="rviz" type="rviz" if="$(arg rviz)"
-    args="-d $(find reem_2dnav)/config/$(arg planner)/$(arg local_planner)/navigation.rviz"/>
+    <include file="$(find reem_gazebo)/launch/reem_gazebo.launch">
+      <arg name="world"  value="$(arg world)"/>
+      <arg name="robot"  value="$(arg robot)"/>
+      <arg name="gzpose" value="$(arg gzpose)"/>
+      <arg name="gui"    value="$(arg gzclient)"/>
+    </include>
 
+    <include file="$(find reem_2dnav)/launch/navigation.launch">
+      <arg name="state"         value="localization"/>
+      <arg name="localization"  value="$(arg localization)"/>
+      <arg name="map"           value="$(arg map)"/>
+
+      <arg name="global_planner" value="$(arg global_planner)"/>
+      <arg name="local_planner"  value="$(arg local_planner)"/>
+    </include>
+
+    <node name="rviz" pkg="rviz" type="rviz" if="$(arg rviz)"
+          args="-d $(find reem_2dnav)/config/rviz/navigation.rviz"/>
+
+  </group>
 </launch>
