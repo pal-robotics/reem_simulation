@@ -206,7 +206,7 @@ namespace reem_hardware_gazebo
 
     // Hardware interfaces: Base IMU sensors
     const string imu_name = "base_inclinometer";
-    imu_sensor_ =  boost::shared_dynamic_cast<gazebo::sensors::ImuSensor>
+    imu_sensor_ =  boost::dynamic_pointer_cast<gazebo::sensors::ImuSensor>
                    (gazebo::sensors::SensorManager::Instance()->GetSensor(imu_name+"_sensor")); // TODO: Fetch from URDF?
     if (!this->imu_sensor_)
     {
